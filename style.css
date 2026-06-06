@@ -4,6 +4,8 @@
     --button-background: #f4ead8;
     --button-border: #6f5435;
     --button-text: #3f2f1f;
+    --button-hover: #fff7e8;
+    --violet-hover: #5a3c8c;
 }
 
 * {
@@ -13,15 +15,17 @@
 html,
 body {
     margin: 0;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 body {
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 20%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08), transparent 18%),
-        radial-gradient(circle at 40% 80%, rgba(0,0,0,0.08), transparent 22%),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.08), transparent 18%),
+        radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.08), transparent 22%),
         linear-gradient(135deg, var(--background), var(--background-dark));
+
     font-family: system-ui, sans-serif;
     overflow: hidden;
 }
@@ -29,26 +33,32 @@ body {
 .container {
     width: 100vw;
     height: 100vh;
-    padding: 2rem 5rem;
+
+    padding: 1.25rem 5rem;
+
     display: grid;
     grid-template-rows: 1fr auto;
     align-items: center;
 }
 
 .grid {
-    width: min(78vw, 110vh);
+    width: min(92vw, 1400px);
     max-height: 82vh;
+
     margin: 0 auto;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: min(3vw, 3vh);
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
     justify-items: center;
+    align-items: center;
 }
 
 .grid img {
     max-width: 100%;
-    max-height: 38vh;
+    max-height: 35vh;
+
     object-fit: contain;
     cursor: pointer;
 }
@@ -57,45 +67,56 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 2rem;
-    padding-top: 1rem;
+    padding-top: 0.75rem;
 }
 
 button {
     background: var(--button-background);
     color: var(--button-text);
+
     border: 2px solid var(--button-border);
     border-radius: 999px;
+
     padding: 0.75rem 1.25rem;
+
     font-size: 1.1rem;
     cursor: pointer;
 }
 
 button:hover {
-    background: #fff7e8;
+    background: var(--button-hover);
 }
 
 #prevBtn,
 #nextBtn {
-    font-size: 2rem;
     width: 4rem;
     height: 4rem;
+
     padding: 0;
+
+    font-size: 2rem;
+    line-height: 1;
 }
 
 .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9);
+
+    background: rgba(0, 0, 0, 0.92);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     z-index: 10;
 }
 
 .lightbox img {
     max-width: 92vw;
     max-height: 92vh;
+
     object-fit: contain;
 }
 
@@ -129,25 +150,29 @@ button:hover {
 }
 
 .close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    background: var(--violet-hover);
+    border-color: white;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .container {
         padding: 1rem;
     }
 
     .grid {
-        width: 92vw;
-        gap: 1rem;
+        width: 94vw;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
     }
 
     .grid img {
-        max-height: 34vh;
+        max-height: 32vh;
     }
 
     .nav {
         gap: 0.75rem;
+        padding-top: 0.5rem;
     }
 
     button {
