@@ -1,49 +1,62 @@
-let items = [];
+let originalItems = [];
+let shuffledItems = [];
 let currentStart = 0;
+
 const imagesPerPage = 6;
+const placeholderFile = "images/polaroid_placeholder.png";
 
 async function loadGallery() {
     try {
-        items = await fetch("images.json").then(response => response.json());
+        originalItems = await fetch("images.json").then(response => response.json());
 
-        if (items.length === 0) {
+        if (originalItems.length === 0) {
             console.error("No images found in images.json.");
             return;
         }
 
-        padWithPlaceholders();
-        showRandomSix();
+        startNewShuffle();
 
     } catch (error) {
         console.error("Failed to load images.json", error);
     }
 }
 
-function padWithPlaceholders() {
-    const remainder = items.length % imagesPerPage;
+function startNewShuffle() {
+    shuffledItems = shuffleArray([...originalItems]);
+    currentStart = 0;
 
-    if (remainder === 0) {
-        return;
+    renderGallery();
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
     }
 
-    const placeholdersNeeded = imagesPerPage - remainder;
+    return array;
+}
 
-    for (let i = 0; i < placeholdersNeeded; i++) {
-        items.push({
-            file: "images/polaroid_placeholder.png",
+function getCurrentPageItems() {
+    const pageItems = shuffledItems.slice(currentStart, currentStart + imagesPerPage);
+
+    while (pageItems.length < imagesPerPage) {
+        pageItems.push({
+            file: placeholderFile,
             title: "Placeholder",
             placeholder: true
         });
     }
+
+    return pageItems;
 }
 
-function renderGallery(startIndex) {
-    currentStart = startIndex;
-
+function renderGallery() {
     const grid = document.getElementById("grid");
     grid.innerHTML = "";
 
-    const visibleImages = items.slice(startIndex, startIndex + imagesPerPage);
+    const visibleImages = getCurrentPageItems();
 
     visibleImages.forEach(item => {
         const image = document.createElement("img");
@@ -61,33 +74,33 @@ function renderGallery(startIndex) {
     });
 }
 
-function showRandomSix() {
-    const maxStart = Math.max(0, items.length - imagesPerPage);
-    const randomPage = Math.floor(Math.random() * Math.floor((maxStart + imagesPerPage) / imagesPerPage));
-    const randomStart = randomPage * imagesPerPage;
-
-    renderGallery(randomStart);
-}
-
 function showNextSix() {
-    const maxStart = Math.max(0, items.length - imagesPerPage);
-    let nextStart = currentStart + imagesPerPage;
+    const nextStart = currentStart + imagesPerPage;
 
-    if (nextStart > maxStart) {
-        nextStart = 0;
+    if (nextStart >= shuffledItems.length) {
+        startNewShuffle();
+        return;
     }
 
-    renderGallery(nextStart);
+    currentStart = nextStart;
+    renderGallery();
 }
 
 function showPreviousSix() {
-    let previousStart = currentStart - imagesPerPage;
+    const previousStart = currentStart - imagesPerPage;
 
     if (previousStart < 0) {
-        previousStart = Math.max(0, items.length - imagesPerPage);
+        currentStart = Math.max(
+            0,
+            shuffledItems.length - (shuffledItems.length % imagesPerPage || imagesPerPage)
+        );
+
+        renderGallery();
+        return;
     }
 
-    renderGallery(previousStart);
+    currentStart = previousStart;
+    renderGallery();
 }
 
 function openLightbox(imagePath) {
