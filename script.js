@@ -1,1 +1,122 @@
-let items=[];let currentStart=0;async function load(){items=await fetch('metadata.json').then(r=>r.json());randomFour()}function render(start){currentStart=start;const g=document.getElementById('grid');g.innerHTML='';items.slice(start,start+4).forEach(item=>{const img=document.createElement('img');img.src=item.file;img.onclick=()=>{document.getElementById('lightboxImage').src=item.file;document.getElementById('lightbox').classList.remove('hidden')};g.appendChild(img)})}function randomFour(){const max=Math.max(0,items.length-4);render(Math.floor(Math.random()*(max+1)))}document.getElementById('shuffleBtn').onclick=randomFour;document.getElementById('nextBtn').onclick=()=>render(Math.min(currentStart+4,Math.max(0,items.length-4)));document.getElementById('prevBtn').onclick=()=>render(Math.max(0,currentStart-4));document.getElementById('closeBtn').onclick=()=>document.getElementById('lightbox').classList.add('hidden');load();
+let items = [];
+let currentStart = 0;
+
+async function loadGallery() {
+    try {
+        items = await fetch("images.json").then(response => response.json());
+
+        if (items.length === 0) {
+            console.error("No images found.");
+            return;
+        }
+
+        showRandomFour();
+
+    } catch (error) {
+        console.error("Failed to load images.json", error);
+    }
+}
+
+function renderGallery(startIndex) {
+
+    currentStart = startIndex;
+
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    const visibleImages = items.slice(startIndex, startIndex + 4);
+
+    visibleImages.forEach(item => {
+
+        const image = document.createElement("img");
+
+        image.src = item.file;
+        image.alt = item.title || "";
+
+        image.addEventListener("click", () => {
+            openLightbox(item.file);
+        });
+
+        grid.appendChild(image);
+
+    });
+}
+
+function showRandomFour() {
+
+    const maxStart = Math.max(0, items.length - 4);
+
+    const randomStart =
+        Math.floor(Math.random() * (maxStart + 1));
+
+    renderGallery(randomStart);
+}
+
+function showNextFour() {
+
+    const maxStart = Math.max(0, items.length - 4);
+
+    const nextStart =
+        Math.min(currentStart + 4, maxStart);
+
+    renderGallery(nextStart);
+}
+
+function showPreviousFour() {
+
+    const previousStart =
+        Math.max(currentStart - 4, 0);
+
+    renderGallery(previousStart);
+}
+
+function openLightbox(imagePath) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+    lightboxImage.src = imagePath;
+
+    lightbox.classList.remove("hidden");
+    lightbox.setAttribute("aria-hidden", "false");
+}
+
+function closeLightbox() {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    lightbox.classList.add("hidden");
+    lightbox.setAttribute("aria-hidden", "true");
+}
+
+document
+    .getElementById("shuffleBtn")
+    .addEventListener("click", showRandomFour);
+
+document
+    .getElementById("nextBtn")
+    .addEventListener("click", showNextFour);
+
+document
+    .getElementById("prevBtn")
+    .addEventListener("click", showPreviousFour);
+
+document
+    .getElementById("closeBtn")
+    .addEventListener("click", closeLightbox);
+
+document
+    .getElementById("lightbox")
+    .addEventListener("click", event => {
+
+        if (event.target.id === "lightbox") {
+            closeLightbox();
+        }
+
+    });
+
+loadGallery();

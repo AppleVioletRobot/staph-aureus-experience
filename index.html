@@ -1,1 +1,28 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Polaroids</title><link rel='stylesheet' href='style.css'></head><body><div class='container'><div id='grid' class='grid'></div><div class='nav'><button id='prevBtn'>←</button><button id='shuffleBtn'>⟳ Random Four</button><button id='nextBtn'>→</button></div></div><div id='lightbox' class='lightbox hidden'><span id='closeBtn' class='close'>&times;</span><img id='lightboxImage'></div><script src='script.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Staph Aureus Experience™</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container">
+    <section id="grid" class="grid" aria-label="Polaroid gallery"></section>
+
+    <nav class="nav" aria-label="Gallery navigation">
+      <button id="prevBtn" type="button" aria-label="Previous four Polaroids">←</button>
+      <button id="shuffleBtn" type="button">⟳ Random Four</button>
+      <button id="nextBtn" type="button" aria-label="Next four Polaroids">→</button>
+    </nav>
+  </main>
+
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <button id="closeBtn" class="close" type="button" aria-label="Close enlarged image">&times;</button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
