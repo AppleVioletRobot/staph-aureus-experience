@@ -1,0 +1,1 @@
+Starter gallery. Add images, update metadata.json, publish via GitHub Pages.
