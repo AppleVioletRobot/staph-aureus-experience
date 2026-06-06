@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Staph Aureus Experience™</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Staph Aureus Experience™</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main class="container">
-    <section id="grid" class="grid" aria-label="Polaroid gallery"></section>
+    <main class="container">
+        <section id="grid" class="grid" aria-label="Polaroid gallery"></section>
 
-    <nav class="nav" aria-label="Gallery navigation">
-      <button id="prevBtn" type="button" aria-label="Previous four Polaroids">←</button>
-      <button id="shuffleBtn" type="button">⟳ Random Four</button>
-      <button id="nextBtn" type="button" aria-label="Next four Polaroids">→</button>
-    </nav>
-  </main>
+        <nav class="nav" aria-label="Gallery navigation">
+            <button id="prevBtn" class="arrow-button" type="button" aria-label="Previous six Polaroids">←</button>
+            <button id="returnBtn" class="return-button" type="button">Apple Violet Robot</button>
+            <button id="nextBtn" class="arrow-button" type="button" aria-label="Next six Polaroids">→</button>
+        </nav>
+    </main>
 
-  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
-    <button id="closeBtn" class="close" type="button" aria-label="Close enlarged image">&times;</button>
-    <img id="lightboxImage" src="" alt="">
-  </div>
+    <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+        <button id="closeBtn" class="close" type="button" aria-label="Close enlarged image">&times;</button>
+        <img id="lightboxImage" src="" alt="">
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

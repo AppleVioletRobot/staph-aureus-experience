@@ -1,5 +1,6 @@
 let items = [];
 let currentStart = 0;
+const imagesPerPage = 6;
 
 async function loadGallery() {
     try {
@@ -11,7 +12,7 @@ async function loadGallery() {
         }
 
         padWithPlaceholders();
-        showRandomFour();
+        showRandomSix();
 
     } catch (error) {
         console.error("Failed to load images.json", error);
@@ -19,13 +20,13 @@ async function loadGallery() {
 }
 
 function padWithPlaceholders() {
-    const remainder = items.length % 4;
+    const remainder = items.length % imagesPerPage;
 
     if (remainder === 0) {
         return;
     }
 
-    const placeholdersNeeded = 4 - remainder;
+    const placeholdersNeeded = imagesPerPage - remainder;
 
     for (let i = 0; i < placeholdersNeeded; i++) {
         items.push({
@@ -42,7 +43,7 @@ function renderGallery(startIndex) {
     const grid = document.getElementById("grid");
     grid.innerHTML = "";
 
-    const visibleImages = items.slice(startIndex, startIndex + 4);
+    const visibleImages = items.slice(startIndex, startIndex + imagesPerPage);
 
     visibleImages.forEach(item => {
         const image = document.createElement("img");
@@ -60,22 +61,31 @@ function renderGallery(startIndex) {
     });
 }
 
-function showRandomFour() {
-    const maxStart = Math.max(0, items.length - 4);
-    const randomStart = Math.floor(Math.random() * (maxStart + 1));
+function showRandomSix() {
+    const maxStart = Math.max(0, items.length - imagesPerPage);
+    const randomPage = Math.floor(Math.random() * Math.floor((maxStart + imagesPerPage) / imagesPerPage));
+    const randomStart = randomPage * imagesPerPage;
 
     renderGallery(randomStart);
 }
 
-function showNextFour() {
-    const maxStart = Math.max(0, items.length - 4);
-    const nextStart = Math.min(currentStart + 4, maxStart);
+function showNextSix() {
+    const maxStart = Math.max(0, items.length - imagesPerPage);
+    let nextStart = currentStart + imagesPerPage;
+
+    if (nextStart > maxStart) {
+        nextStart = 0;
+    }
 
     renderGallery(nextStart);
 }
 
-function showPreviousFour() {
-    const previousStart = Math.max(currentStart - 4, 0);
+function showPreviousSix() {
+    let previousStart = currentStart - imagesPerPage;
+
+    if (previousStart < 0) {
+        previousStart = Math.max(0, items.length - imagesPerPage);
+    }
 
     renderGallery(previousStart);
 }
@@ -99,9 +109,13 @@ function closeLightbox() {
     lightboxImage.src = "";
 }
 
-document.getElementById("shuffleBtn").addEventListener("click", showRandomFour);
-document.getElementById("nextBtn").addEventListener("click", showNextFour);
-document.getElementById("prevBtn").addEventListener("click", showPreviousFour);
+function returnToAVR() {
+    window.location.href = "https://applevioletrobot.com";
+}
+
+document.getElementById("returnBtn").addEventListener("click", returnToAVR);
+document.getElementById("nextBtn").addEventListener("click", showNextSix);
+document.getElementById("prevBtn").addEventListener("click", showPreviousSix);
 document.getElementById("closeBtn").addEventListener("click", closeLightbox);
 
 document.getElementById("lightbox").addEventListener("click", event => {
@@ -116,11 +130,11 @@ document.addEventListener("keydown", event => {
     }
 
     if (event.key === "ArrowRight") {
-        showNextFour();
+        showNextSix();
     }
 
     if (event.key === "ArrowLeft") {
-        showPreviousFour();
+        showPreviousSix();
     }
 });
 
