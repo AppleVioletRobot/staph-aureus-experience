@@ -1,6 +1,7 @@
 :root {
     --page-background: #b8945f;
-    --page-background-dark: #9f7c4d;
+    --page-background-dark: #a98757;
+    --page-border: #9f7f54;
 
     --outer-background: #4c3a63;
     --outer-background-dark: #2f2440;
@@ -26,11 +27,12 @@ body {
 
 body {
     background:
-        linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.04) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.04) 25%, transparent 25%),
         linear-gradient(135deg, var(--outer-background), var(--outer-background-dark));
 
     background-size: 42px 42px, 42px 42px, 100% 100%;
+
     font-family: system-ui, sans-serif;
     overflow: hidden;
 }
@@ -63,17 +65,17 @@ body {
     align-items: center;
 
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.14), transparent 22%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08), transparent 20%),
-        radial-gradient(circle at 40% 80%, rgba(0,0,0,0.08), transparent 24%),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 22%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.08), transparent 20%),
+        radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.08), transparent 24%),
         linear-gradient(135deg, var(--page-background), var(--page-background-dark));
 
-    border: 4px solid rgba(63, 47, 31, 0.45);
-    border-radius: 1.25rem;
+    border: 2px solid var(--page-border);
+    border-radius: 0.35rem;
 
     box-shadow:
-        0 1rem 2rem rgba(0, 0, 0, 0.35),
-        inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+        0 1rem 2rem rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .grid img {
@@ -110,9 +112,9 @@ button {
     color: var(--button-text);
 
     border: 3px solid var(--button-border);
-    border-radius: 2rem;
+    border-radius: 1.6rem;
 
-    font-size: 2.75rem;
+    font-size: 2.4rem;
     font-weight: 900;
     line-height: 1;
 
@@ -230,8 +232,8 @@ button {
         width: 3.5rem;
         height: 3.25rem;
 
-        font-size: 2rem;
-        border-radius: 1.4rem;
+        font-size: 1.8rem;
+        border-radius: 1.2rem;
     }
 
     .return-button {
