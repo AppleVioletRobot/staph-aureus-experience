@@ -11,6 +11,9 @@
     --button-text: #3f2f1f;
     --button-hover: #fff7e8;
 
+    --arrow-background: #cfc2e6;
+    --arrow-hover: #ddd2f0;
+
     --violet-hover: #5a3c8c;
 
     --text-dark: #2f2440;
@@ -91,6 +94,12 @@ body {
     cursor: pointer;
 }
 
+.grid img:focus-visible {
+    outline: 3px solid var(--arrow-background);
+    outline-offset: 0.35rem;
+    border-radius: 0.25rem;
+}
+
 .nav {
     display: flex;
     justify-content: center;
@@ -105,7 +114,7 @@ button {
     cursor: pointer;
 }
 
-/* ARROW BUTTONS */
+/* Arrow buttons */
 
 .arrow-button {
     width: 3.5rem;
@@ -115,7 +124,7 @@ button {
     align-items: center;
     justify-content: center;
 
-    background: #cfc2e6;
+    background: var(--arrow-background);
 
     border: 3px solid var(--button-border);
     border-radius: 50%;
@@ -143,7 +152,7 @@ button {
 }
 
 .arrow-button:hover {
-    background: #ddd2f0;
+    background: var(--arrow-hover);
 
     transform: translateY(1px);
 
@@ -245,30 +254,54 @@ button {
     top: 1rem;
     right: 1.5rem;
 
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 3.5rem;
+    height: 3.5rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: white;
-    background: rgba(47, 36, 64, 0.9);
+    color: var(--button-text);
+    background: var(--arrow-background);
 
-    border: 2px solid white;
+    border: 3px solid var(--button-border);
     border-radius: 50%;
 
-    font-size: 2.2rem;
-    font-weight: bold;
+    font-size: 2.25rem;
+    font-weight: 700;
     line-height: 1;
 
-    cursor: pointer;
+    box-shadow:
+        0 4px 0 rgba(63, 47, 31, 0.30),
+        0 2px 8px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background-color 0.12s ease;
 }
 
 .close:hover {
-    color: white;
-    background: #8b2f4d;
-    border-color: white;
+    color: var(--button-text);
+    background: var(--arrow-hover);
+
+    transform: translateY(1px);
+
+    box-shadow:
+        0 3px 0 rgba(63, 47, 31, 0.30),
+        0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.close:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 1px 0 rgba(63, 47, 31, 0.30);
+}
+
+.close:focus-visible {
+    outline: 3px solid var(--paper-white);
+    outline-offset: 0.25rem;
 }
 
 /* Accessibility page */
@@ -360,6 +393,12 @@ button {
 
     .site-footer {
         font-size: 0.75rem;
+    }
+
+    .close {
+        width: 3rem;
+        height: 3rem;
+        font-size: 2rem;
     }
 
     .accessibility-page {

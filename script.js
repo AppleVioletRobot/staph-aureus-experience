@@ -1,6 +1,7 @@
 let originalItems = [];
 let shuffledItems = [];
 let currentStart = 0;
+let lastFocusedElement = null;
 
 const imagesPerPage = 6;
 const placeholderFile = "images/polaroid_placeholder.png";
@@ -63,8 +64,17 @@ function renderGallery() {
         image.alt = item.alt || "";
 
         if (!item.placeholder) {
+            image.tabIndex = 0;
+
             image.addEventListener("click", () => {
                 openLightbox(item.file, item.alt);
+            });
+
+            image.addEventListener("keydown", event => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openLightbox(item.file, item.alt);
+                }
             });
         }
 
@@ -104,12 +114,17 @@ function showPreviousSix() {
 function openLightbox(imagePath, altText) {
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightboxImage");
+    const closeButton = document.getElementById("closeBtn");
+
+    lastFocusedElement = document.activeElement;
 
     lightboxImage.src = imagePath;
     lightboxImage.alt = altText || "";
 
     lightbox.classList.remove("hidden");
     lightbox.setAttribute("aria-hidden", "false");
+
+    closeButton.focus();
 }
 
 function closeLightbox() {
@@ -121,10 +136,18 @@ function closeLightbox() {
 
     lightboxImage.src = "";
     lightboxImage.alt = "";
+
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
 }
 
 function returnToAVR() {
     window.location.href = "https://applevioletrobot.com";
+}
+
+function isLightboxOpen() {
+    return !document.getElementById("lightbox").classList.contains("hidden");
 }
 
 document.getElementById("returnBtn").addEventListener("click", returnToAVR);
@@ -139,8 +162,13 @@ document.getElementById("lightbox").addEventListener("click", event => {
 });
 
 document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && isLightboxOpen()) {
         closeLightbox();
+        return;
+    }
+
+    if (isLightboxOpen()) {
+        return;
     }
 
     if (event.key === "ArrowRight") {
