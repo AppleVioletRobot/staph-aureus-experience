@@ -267,10 +267,6 @@ button {
     border: 3px solid var(--button-border);
     border-radius: 50%;
 
-    font-size: 1.9rem;
-    font-weight: 700;
-    line-height: 1;
-
     box-shadow:
         0 4px 0 rgba(63, 47, 31, 0.30),
         0 2px 8px rgba(0, 0, 0, 0.18);
@@ -279,6 +275,18 @@ button {
         transform 0.12s ease,
         box-shadow 0.12s ease,
         background-color 0.12s ease;
+}
+
+.close svg {
+    width: 1.9rem;
+    height: 1.9rem;
+
+    stroke: var(--button-text);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    fill: none;
 }
 
 .close:hover {
@@ -398,7 +406,11 @@ button {
     .close {
         width: 3rem;
         height: 3rem;
-        font-size: 1.7rem;
+    }
+
+    .close svg {
+        width: 1.7rem;
+        height: 1.7rem;
     }
 
     .accessibility-page {
