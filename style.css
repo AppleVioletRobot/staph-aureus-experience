@@ -108,14 +108,14 @@ button {
 /* ARROW BUTTONS */
 
 .arrow-button {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #d9d0e5;
+    background: #cfc2e6;
 
     border: 3px solid var(--button-border);
     border-radius: 50%;
@@ -143,7 +143,7 @@ button {
 }
 
 .arrow-button:hover {
-    background: #e6dff0;
+    background: #ddd2f0;
 
     transform: translateY(1px);
 
@@ -344,8 +344,8 @@ button {
     }
 
     .arrow-button {
-        width: 3.25rem;
-        height: 3.25rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     .arrow-button svg {
