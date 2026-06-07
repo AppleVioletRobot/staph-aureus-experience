@@ -41,29 +41,6 @@ body {
     font-family: system-ui, sans-serif;
 }
 
-/* Skip link */
-
-.skip-link {
-    position: absolute;
-    left: 1rem;
-    top: -4rem;
-    z-index: 20;
-
-    background: var(--paper-white);
-    color: var(--text-dark);
-
-    padding: 0.75rem 1rem;
-
-    border: 2px solid var(--button-border);
-    border-radius: 0.35rem;
-
-    font-weight: 700;
-}
-
-.skip-link:focus {
-    top: 1rem;
-}
-
 /* Gallery page */
 
 .container {
@@ -109,36 +86,15 @@ body {
         inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
-.polaroid-button {
-    width: 100%;
+.grid img {
     max-width: 96%;
     max-height: 34vh;
 
-    padding: 0;
-    margin: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: transparent;
-    border: none;
-
+    object-fit: contain;
     cursor: pointer;
 }
 
-.polaroid-button img {
-    max-width: 100%;
-    max-height: 34vh;
-
-    object-fit: contain;
-}
-
-.polaroid-button:disabled {
-    cursor: default;
-}
-
-.polaroid-button:focus-visible {
+.grid img:focus-visible {
     outline: 3px solid var(--arrow-background);
     outline-offset: 0.35rem;
     border-radius: 0.25rem;
@@ -401,6 +357,30 @@ button {
     color: #8b2f4d;
 }
 
+
+.description-list {
+    margin: 2rem 0 0;
+    padding-left: 1.5rem;
+}
+
+.description-item {
+    margin-bottom: 1.75rem;
+}
+
+.description-item h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+
+.description-item p {
+    margin: 0.35rem 0;
+}
+
+.filename {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
 @media (max-width: 900px) {
     .container {
         padding: 1rem;
@@ -418,12 +398,8 @@ button {
         padding: 0.75rem;
     }
 
-    .polaroid-button {
+    .grid img {
         max-width: 98%;
-        max-height: 31vh;
-    }
-
-    .polaroid-button img {
         max-height: 31vh;
     }
 
