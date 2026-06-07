@@ -43,12 +43,20 @@ function getCurrentPageItems() {
     while (pageItems.length < imagesPerPage) {
         pageItems.push({
             file: placeholderFile,
+            caption: "",
             alt: "",
             placeholder: true
         });
     }
 
     return pageItems;
+}
+
+function getAccessibleLabel(item) {
+    const caption = item.caption ? `Caption: ${item.caption}.` : "";
+    const description = item.alt ? `Description: ${item.alt}` : "";
+
+    return `${caption} ${description}`.trim();
 }
 
 function renderGallery() {
@@ -58,27 +66,31 @@ function renderGallery() {
     const visibleImages = getCurrentPageItems();
 
     visibleImages.forEach(item => {
+        const button = document.createElement("button");
         const image = document.createElement("img");
 
+        button.className = "polaroid-button";
+        button.type = "button";
+
         image.src = item.file;
-        image.alt = item.alt || "";
+        image.alt = "";
+        image.setAttribute("aria-hidden", "true");
 
-        if (!item.placeholder) {
-            image.tabIndex = 0;
+        if (item.placeholder) {
+            button.disabled = true;
+            button.setAttribute("aria-hidden", "true");
+        } else {
+            const accessibleLabel = getAccessibleLabel(item);
 
-            image.addEventListener("click", () => {
-                openLightbox(item.file, item.alt);
-            });
+            button.setAttribute("aria-label", accessibleLabel);
 
-            image.addEventListener("keydown", event => {
-                if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    openLightbox(item.file, item.alt);
-                }
+            button.addEventListener("click", () => {
+                openLightbox(item.file, accessibleLabel);
             });
         }
 
-        grid.appendChild(image);
+        button.appendChild(image);
+        grid.appendChild(button);
     });
 }
 
@@ -111,7 +123,7 @@ function showPreviousSix() {
     renderGallery();
 }
 
-function openLightbox(imagePath, altText) {
+function openLightbox(imagePath, accessibleLabel) {
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightboxImage");
     const closeButton = document.getElementById("closeBtn");
@@ -119,10 +131,11 @@ function openLightbox(imagePath, altText) {
     lastFocusedElement = document.activeElement;
 
     lightboxImage.src = imagePath;
-    lightboxImage.alt = altText || "";
+    lightboxImage.alt = accessibleLabel || "";
 
     lightbox.classList.remove("hidden");
     lightbox.setAttribute("aria-hidden", "false");
+    lightbox.setAttribute("aria-label", `Enlarged Polaroid image. ${accessibleLabel}`);
 
     closeButton.focus();
 }
@@ -133,6 +146,7 @@ function closeLightbox() {
 
     lightbox.classList.add("hidden");
     lightbox.setAttribute("aria-hidden", "true");
+    lightbox.setAttribute("aria-label", "Enlarged Polaroid image");
 
     lightboxImage.src = "";
     lightboxImage.alt = "";
