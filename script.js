@@ -24,14 +24,12 @@ async function loadGallery() {
 function startNewShuffle() {
     shuffledItems = shuffleArray([...originalItems]);
     currentStart = 0;
-
     renderGallery();
 }
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
-
         [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
     }
 
@@ -44,7 +42,7 @@ function getCurrentPageItems() {
     while (pageItems.length < imagesPerPage) {
         pageItems.push({
             file: placeholderFile,
-            title: "Placeholder",
+            alt: "",
             placeholder: true
         });
     }
@@ -62,11 +60,11 @@ function renderGallery() {
         const image = document.createElement("img");
 
         image.src = item.file;
-        image.alt = item.title || "";
+        image.alt = item.alt || "";
 
         if (!item.placeholder) {
             image.addEventListener("click", () => {
-                openLightbox(item.file);
+                openLightbox(item.file, item.alt);
             });
         }
 
@@ -103,11 +101,12 @@ function showPreviousSix() {
     renderGallery();
 }
 
-function openLightbox(imagePath) {
+function openLightbox(imagePath, altText) {
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightboxImage");
 
     lightboxImage.src = imagePath;
+    lightboxImage.alt = altText || "";
 
     lightbox.classList.remove("hidden");
     lightbox.setAttribute("aria-hidden", "false");
@@ -119,7 +118,9 @@ function closeLightbox() {
 
     lightbox.classList.add("hidden");
     lightbox.setAttribute("aria-hidden", "true");
+
     lightboxImage.src = "";
+    lightboxImage.alt = "";
 }
 
 function returnToAVR() {

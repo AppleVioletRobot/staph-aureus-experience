@@ -1,45 +1,174 @@
 [
-  {"file":"images/polaroid_alien_brains.png"},
-  {"file":"images/polaroid_altered_paw.png"},
-  {"file":"images/polaroid_ass_wiping.png"},
-  {"file":"images/polaroid_asymmetry.png"},
-  {"file":"images/polaroid_bed_change.png"},
-  {"file":"images/polaroid_bed_wetting.png"},
-  {"file":"images/polaroid_bit_dry.png"},
-  {"file":"images/polaroid_black_market.png"},
-  {"file":"images/polaroid_blood_draws.png"},
-  {"file":"images/polaroid_bloody_pillow.png"},
-  {"file":"images/polaroid_breakfast.png"},
-  {"file":"images/polaroid_call_button.png"},
-  {"file":"images/polaroid_catheter.png"},
-  {"file":"images/polaroid_delicate_flower.png"},
-  {"file":"images/polaroid_edgar.png"},
-  {"file":"images/polaroid_fat_girl_dungarees.png"},
-  {"file":"images/polaroid_feeling_faint.png"},
-  {"file":"images/polaroid_gloves.png"},
-  {"file":"images/polaroid_hair_stroking.png"},
-  {"file":"images/polaroid_karen.png"},
-  {"file":"images/polaroid_naked_again.png"},
-  {"file":"images/polaroid_ninja_nurse.png"},
-  {"file":"images/polaroid_not_required.png"},
-  {"file":"images/polaroid_party_bag.png"},
-  {"file":"images/polaroid_pirate_era.png"},
-  {"file":"images/polaroid_pus_ferrets.png"},
-  {"file":"images/polaroid_recursion.png"},
-  {"file":"images/polaroid_satsumas.png"},
-  {"file":"images/polaroid_shitscapades.png"},
-  {"file":"images/polaroid_staph_life.png"},
-  {"file":"images/polaroid_stoma.png"},
-  {"file":"images/polaroid_t_sql.png"},
-  {"file":"images/polaroid_thoroughly_demoted.png"},
-  {"file":"images/polaroid_tinnitus.png"},
-  {"file":"images/polaroid_toothless_maw.png"},
-  {"file":"images/polaroid_unicorns.png"},
-  {"file":"images/polaroid_university.png"},
-  {"file":"images/polaroid_vibe_coding.png"},
-  {"file":"images/polaroid_what_to_wear.png"},
-  {"file":"images/polaroid_winking.png"},
-  {"file":"images/polaroid_wordle_heist.png"},
-  {"file":"images/polaroid_yellow_fellow.png"},
-  {"file":"images/polaroid_yohaku.png"}
+  {
+    "file": "images/polaroid_alien_brains.png",
+    "alt": "Collage showing hospital-related bodily tissue or medical imagery compared with alien brains. Caption reads: Alien Brains."
+  },
+  {
+    "file": "images/polaroid_altered_paw.png",
+    "alt": "Collage showing an altered or injured hand. Caption reads: My Altered Paw."
+  },
+  {
+    "file": "images/polaroid_ass_wiping.png",
+    "alt": "Collage referring humorously to being helped with intimate personal care in hospital. Caption reads: Certified Best Arse Wiper."
+  },
+  {
+    "file": "images/polaroid_asymmetry.png",
+    "alt": "Collage referring to unevenness, imbalance, or asymmetry during hospital care. Caption reads: Asymmetry."
+  },
+  {
+    "file": "images/polaroid_bed_change.png",
+    "alt": "Collage showing or referring to a hospital bed change. Caption reads: Bed Change."
+  },
+  {
+    "file": "images/polaroid_bed_wetting.png",
+    "alt": "Collage referring to bed wetting during hospitalisation. Caption reads: Bed Wetting."
+  },
+  {
+    "file": "images/polaroid_bit_dry.png",
+    "alt": "Collage referring to dryness or dehydration in hospital. Caption reads: A Bit Dry."
+  },
+  {
+    "file": "images/polaroid_black_market.png",
+    "alt": "Collage referring humorously to a hospital black market or informal exchange. Caption reads: Black Market."
+  },
+  {
+    "file": "images/polaroid_blood_draws.png",
+    "alt": "Collage referring to repeated blood draws in hospital. Caption reads: Blood Draws."
+  },
+  {
+    "file": "images/polaroid_bloody_pillow.png",
+    "alt": "Collage showing or referring to a bloody pillow during hospitalisation. Caption reads: Bloody Pillow."
+  },
+  {
+    "file": "images/polaroid_breakfast.png",
+    "alt": "Collage showing or referring to hospital breakfast. Caption reads: Breakfast."
+  },
+  {
+    "file": "images/polaroid_call_button.png",
+    "alt": "Collage showing or referring to a hospital call button. Caption reads: The Sacred Call Button."
+  },
+  {
+    "file": "images/polaroid_catheter.png",
+    "alt": "Collage referring to a catheter during hospitalisation. Caption reads: Catheter."
+  },
+  {
+    "file": "images/polaroid_delicate_flower.png",
+    "alt": "Collage referring humorously to feeling fragile or delicate in hospital. Caption reads: Delicate Flower."
+  },
+  {
+    "file": "images/polaroid_edgar.png",
+    "alt": "Collage featuring or referring to Edgar. Caption reads: Edgar."
+  },
+  {
+    "file": "images/polaroid_fat_girl_dungarees.png",
+    "alt": "Collage referring to clothing, body image, or dungarees. Caption reads: Fat Girl Dungarees."
+  },
+  {
+    "file": "images/polaroid_feeling_faint.png",
+    "alt": "Collage referring to feeling faint during hospitalisation. Caption reads: Feeling Faint."
+  },
+  {
+    "file": "images/polaroid_gloves.png",
+    "alt": "Collage showing or referring to hospital gloves. Caption reads: Ultramarine Gloves."
+  },
+  {
+    "file": "images/polaroid_hair_stroking.png",
+    "alt": "Collage referring to hair stroking as comfort or care in hospital. Caption reads: Hair Stroking."
+  },
+  {
+    "file": "images/polaroid_karen.png",
+    "alt": "Collage featuring or referring to Karen. Caption reads: Karen."
+  },
+  {
+    "file": "images/polaroid_naked_again.png",
+    "alt": "Collage referring to being naked again during hospital care. Caption reads: Naked Again."
+  },
+  {
+    "file": "images/polaroid_ninja_nurse.png",
+    "alt": "Collage referring admiringly to a nurse. Caption reads: Ninja Nurse."
+  },
+  {
+    "file": "images/polaroid_not_required.png",
+    "alt": "Collage referring to something or someone being not required. Caption reads: Not Required."
+  },
+  {
+    "file": "images/polaroid_party_bag.png",
+    "alt": "Collage referring humorously to a hospital party bag. Caption reads: Party Bag."
+  },
+  {
+    "file": "images/polaroid_pirate_era.png",
+    "alt": "Collage referring to a pirate era during hospitalisation. Caption reads: Pirate Era."
+  },
+  {
+    "file": "images/polaroid_pus_ferrets.png",
+    "alt": "Collage referring humorously to surgical drains or pus. Caption reads: Pus Ferrets."
+  },
+  {
+    "file": "images/polaroid_recursion.png",
+    "alt": "Collage referring to recursion, repetition, or looping hospital experience. Caption reads: Recursion."
+  },
+  {
+    "file": "images/polaroid_satsumas.png",
+    "alt": "Collage showing or referring to satsumas in hospital. Caption reads: Satsumas."
+  },
+  {
+    "file": "images/polaroid_shitscapades.png",
+    "alt": "Collage referring humorously to bowel-related hospital experiences. Caption reads: Shitscapades."
+  },
+  {
+    "file": "images/polaroid_staph_life.png",
+    "alt": "Collage referring to life with staph infection. Caption reads: Staph Life."
+  },
+  {
+    "file": "images/polaroid_stoma.png",
+    "alt": "Collage referring to stoma marking or the possibility of a stoma. Caption reads: Stoma."
+  },
+  {
+    "file": "images/polaroid_t_sql.png",
+    "alt": "Collage referring humorously to T-SQL or data work during illness. Caption reads: T-SQL."
+  },
+  {
+    "file": "images/polaroid_thoroughly_demoted.png",
+    "alt": "Collage referring to feeling thoroughly demoted during hospitalisation. Caption reads: Thoroughly Demoted."
+  },
+  {
+    "file": "images/polaroid_tinnitus.png",
+    "alt": "Collage referring to tinnitus. Caption reads: Tinnitus."
+  },
+  {
+    "file": "images/polaroid_toothless_maw.png",
+    "alt": "Collage referring humorously to a toothless mouth or goblin-like appearance. Caption reads: Toothless Maw."
+  },
+  {
+    "file": "images/polaroid_unicorns.png",
+    "alt": "Collage referring to unicorns during hospitalisation. Caption reads: Unicorns."
+  },
+  {
+    "file": "images/polaroid_university.png",
+    "alt": "Collage referring to university. Caption reads: University."
+  },
+  {
+    "file": "images/polaroid_vibe_coding.png",
+    "alt": "Collage referring humorously to vibe coding. Caption reads: Vibe Coding."
+  },
+  {
+    "file": "images/polaroid_what_to_wear.png",
+    "alt": "Collage referring to what to wear in hospital. Caption reads: What to Wear."
+  },
+  {
+    "file": "images/polaroid_winking.png",
+    "alt": "Collage referring to winking. Caption reads: Winking."
+  },
+  {
+    "file": "images/polaroid_wordle_heist.png",
+    "alt": "Collage referring humorously to Wordle in hospital. Caption reads: The Great Wordle Heist of Ward 19."
+  },
+  {
+    "file": "images/polaroid_yellow_fellow.png",
+    "alt": "Collage referring to jaundice or yellow colouring during illness. Caption reads: Yellow Fellow."
+  },
+  {
+    "file": "images/polaroid_yohaku.png",
+    "alt": "Collage referring to yohaku, or the use of empty space. Caption reads: Yohaku."
+  }
 ]
