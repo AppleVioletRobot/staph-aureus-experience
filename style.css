@@ -105,24 +105,24 @@ button {
     cursor: pointer;
 }
 
-/* NEW ARROW BUTTONS */
+/* ARROW BUTTONS */
 
 .arrow-button {
-    width: 4.75rem;
-    height: 4.75rem;
+    width: 4rem;
+    height: 4rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: var(--button-background);
+    background: #d9d0e5;
 
     border: 3px solid var(--button-border);
     border-radius: 50%;
 
     box-shadow:
-        0 4px 0 rgba(63, 47, 31, 0.35),
-        0 2px 8px rgba(0, 0, 0, 0.15);
+        0 4px 0 rgba(63, 47, 31, 0.30),
+        0 2px 8px rgba(0, 0, 0, 0.12);
 
     transition:
         transform 0.12s ease,
@@ -143,20 +143,20 @@ button {
 }
 
 .arrow-button:hover {
-    background: var(--button-hover);
+    background: #e6dff0;
 
     transform: translateY(1px);
 
     box-shadow:
-        0 3px 0 rgba(63, 47, 31, 0.35),
-        0 2px 6px rgba(0, 0, 0, 0.15);
+        0 3px 0 rgba(63, 47, 31, 0.30),
+        0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .arrow-button:active {
     transform: translateY(3px);
 
     box-shadow:
-        0 1px 0 rgba(63, 47, 31, 0.35);
+        0 1px 0 rgba(63, 47, 31, 0.30);
 }
 
 .return-button {
@@ -344,8 +344,8 @@ button {
     }
 
     .arrow-button {
-        width: 3.75rem;
-        height: 3.75rem;
+        width: 3.25rem;
+        height: 3.25rem;
     }
 
     .arrow-button svg {
