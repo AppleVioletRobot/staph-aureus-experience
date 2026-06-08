@@ -60,24 +60,27 @@ body {
     text-align: center;
     color: #f4ead8;
 
-    padding-bottom: 0.9rem;
+    padding-bottom: 0.25rem;
 }
 
 .gallery-header h1 {
     margin: 0;
 
-    font-size: clamp(1.45rem, 2.2vw, 2.15rem);
-    font-weight: 800;
+    font-size: 1.1rem;
+    font-weight: 700;
     line-height: 1.1;
 }
 
 .gallery-header p {
-    margin: 0.3rem 0 0;
+    margin: 0.1rem 0 0;
 
-    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
-    font-weight: 650;
-    letter-spacing: 0.04em;
-    opacity: 0.92;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: #cfc2e6;
+
+    letter-spacing: 0.03em;
+    opacity: 0.95;
 }
 
 .grid {
@@ -410,16 +413,16 @@ button {
     }
 
     .gallery-header {
-        padding-bottom: 0.65rem;
-    }
+    padding-bottom: 0.2rem;
+}
 
-    .gallery-header h1 {
-        font-size: 1.25rem;
-    }
+.gallery-header h1 {
+    font-size: 1rem;
+}
 
-    .gallery-header p {
-        font-size: 0.85rem;
-    }
+.gallery-header p {
+    font-size: 0.75rem;
+}
 
     .grid {
         width: 94vw;
