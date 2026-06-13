@@ -213,5 +213,15 @@
     "file": "images/polaroid_yohaku.png",
     "caption": "Yohaku",
     "alt": "Collage showing a small distant figure in a blank white room, with a wall clock on one side."
+  },
+  {
+    "file": "images/polaroid_dr_human.png",
+    "caption": "Doctors are hole-in-the-jumper human after all! Huh?!",
+    "alt": "Collage showing a man in a blue jumper with his arm raised to show a hole in the arm scye."
+  },
+  {
+    "file": "images/polaroid_dr_magritte.png",
+    "caption": "A medical Magritte moment I was too high on bacteria to really enjoy until I made this picture.",
+    "alt": "Collage showing a doctor in scrubs with a stethoscope. His head is a large red umbrella."
   }
 ]
